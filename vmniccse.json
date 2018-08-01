@@ -90,14 +90,14 @@
       "name": "VM0",
       "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Network/networkInterfaces/', 'NIC0')]"
+        "NIC0"
       ],
       "properties": {
         "availabilitySet": {
           "id": "[resourceId('Microsoft.Compute/availabilitySets','avset')]"
         },
         "hardwareProfile": {
-          "vmSize": "Standard_A0"
+          "vmSize": "[parameters('vmsize')]"
         },
         "osProfile": {
           "computerName": "VM0",
@@ -153,14 +153,14 @@
       "name": "VM1",
       "location": "[resourceGroup().location]",
       "dependsOn": [
-        "[concat('Microsoft.Network/networkInterfaces/', 'NIC1')]"
+        "NIC1", "VM0"
       ],
       "properties": {
         "availabilitySet": {
           "id": "[resourceId('Microsoft.Compute/availabilitySets','avset')]"
         },
         "hardwareProfile": {
-          "vmSize": "Standard_A0"
+        "vmSize": "[parameters('vmsize')]"
         },
         "osProfile": {
           "computerName": "VM1",
