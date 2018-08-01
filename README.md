@@ -4,3 +4,7 @@ This template deploys a Load-Balancer with 2 virtual machines. It also installs 
 <a href="https://azuredeploy.net/" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
 </a>
+
+Files: 
+vmo.htm-- Content for the iisstart.htm file of the VM0
+vm1.htm-- Content for the iisstart.htm file of the VM1
