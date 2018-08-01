@@ -1,0 +1,121 @@
+{
+  "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "storageAccountName": {
+      "type": "string"
+    },
+    "storageAccountType": {
+      "type": "string"
+    },
+    "avsetName": {
+      "type": "string"
+    },
+    "dnsNameforLBIP": {
+      "type": "string"
+    },
+    "adminUsername": {
+      "type": "string"
+    },
+    "adminPassword": {
+      "type": "securestring"
+    },
+    "csefileVM0": {
+      "type": "string"
+    },
+    "csefileVM1": {
+      "type": "string"
+    },
+    "vmsku": {
+      "type": "string"
+    },
+    "vmsize": {
+      "type": "string"
+    }
+  },
+  "variables": {
+  },
+  "resources": [
+    {
+      "apiVersion": "2016-09-01",
+      "name": "nestedStrg",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/yashagarwal1/LoadBalancerIIS-CSE/master/storageAccount.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "storageAccountName": { "value": "[parameters('storageAccountName')]" },
+          "storageAccountType": { "value": "[parameters('storageAccountType')]" }
+        }
+      }
+    },
+    {
+      "apiVersion": "2016-09-01",
+      "name": "nestedAvset",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/yashagarwal1/LoadBalancerIIS-CSE/master/avset.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "avsetName": { "value": "[parameters('avsetName')]" }
+        }
+      }
+    },
+    {
+      "apiVersion": "2016-09-01",
+      "name": "nestedVnetpip",
+      "type": "Microsoft.Resources/deployments",
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/yashagarwal1/LoadBalancerIIS-CSE/master/vnetpip.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "dnsNameforLBIP": { "value": "[parameters('dnsNameforLBIP')]" }
+        }
+      }
+    },
+    {
+      "apiVersion": "2016-09-01",
+      "name": "nestedlbdemo",
+      "type": "Microsoft.Resources/deployments",
+      "dependsOn": [ "nestedVnetpip" ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/yashagarwal1/LoadBalancerIIS-CSE/master/loadbal.json",
+          "contentVersion": "1.0.0.0"
+        }
+      }
+    },
+    {
+      "apiVersion": "2016-09-01",
+      "name": "nestedVMCSE",
+      "type": "Microsoft.Resources/deployments",
+      "dependsOn": [ "nestedStrg", "nestedAvset", "nestedVnetpip", "nestedlbdemo" ],
+      "properties": {
+        "mode": "Incremental",
+        "templateLink": {
+          "uri": "https://raw.githubusercontent.com/yashagarwal1/LoadBalancerIIS-CSE/master/vmniccse.json",
+          "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "adminUsername": { "value": "[parameters('adminUsername')]" },
+          "adminPassword": { "value": "[parameters('adminPassword')]" },
+          "csefileVM0": { "value": "[parameters('csefileVM0')]" },
+          "csefileVM1": { "value": "[parameters('csefileVM1')]" },
+          "vmsku": { "value": "[parameters('vmsku')]" },
+          "vmszie": { "value": "[parameters('vmsize')]" }
+        }
+      }
+    }
+
+  ]
+}
