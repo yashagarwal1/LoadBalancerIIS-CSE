@@ -1,5 +1,5 @@
 # LoadBalancerIIS-CSE
-ARM tempalte to deploy Load Balancer with IIS server installed in the VM. This template deploys a Load-Balancer with 2 virtual machines. It also installs IIS in the virtual machines and replaces the iisstart.htm file contents with contents of another file. 
+ARM template to deploy Load Balancer with IIS server installed in the VM. This template deploys a Load-Balancer with 2 virtual machines. It also installs IIS in the virtual machines and replaces the iisstart.htm file contents with contents of another file. 
 
 <a href="https://azuredeploy.net/" target="_blank">
     <img src="http://azuredeploy.net/deploybutton.png"/>
