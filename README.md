@@ -15,3 +15,5 @@ This template deploys a Load-Balancer with 2 virtual machines. It also installs 
 <div>loadbal.json-- Nested ARM template for Load Balancer</div>
 <div>vnetpip.json-- Nested ARM template for Virtual Network, Public IP Address</div>
 <div>vmniccse.json-- Nested ARM template for 2 NICs, 2VMs with Custom Script Extensions to install IIS and replace the iisstart.htm files</div>
+<div>azuredeploy.json-- Main template that calls all the nested sub templates (deployment script)</div>
+<div>azuredeploy.parameters.json-- Parameters template</div>
