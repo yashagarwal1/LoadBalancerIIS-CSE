@@ -2,18 +2,21 @@
   "$schema": "http://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json",
   "contentVersion": "1.0.0.0",
   "parameters": {
+       "lbName": {
+      "type": "string"
+    }
   },
   "variables": {
     "frontEndIPConfigID": "[concat(variables('lbID'),'/frontendIPConfigurations/LoadBalancerFrontEnd')]",
     "lbPoolID": "[concat(variables('lbID'),'/backendAddressPools/BackendPool1')]",
     "lbProbeID": "[concat(variables('lbID'),'/probes/tcpProbe')]",
     "publicIPAddressID": "[resourceId('Microsoft.Network/publicIPAddresses','piplbdemo')]",
-    "lbID": "[resourceId('Microsoft.Network/loadBalancers','lbdemo')]"
+    "lbID": "[resourceId('Microsoft.Network/loadBalancers', parameters('lbname'))]"
   },
   "resources": [
     {
       "apiVersion": "2015-05-01-preview",
-      "name": "lbdemo",
+      "name": "[parameters('lbName')]",
       "type": "Microsoft.Network/loadBalancers",
       "location": "[resourceGroup().location]",
       "properties": {
