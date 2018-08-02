@@ -19,15 +19,21 @@
     },
     "vmsize": {
       "type": "string"
+    },
+       "avsetName": {
+      "type": "string"
+    },
+     "lbName": {
+      "type": "string"
     }
   },
   "variables": {
     "subnet1Ref": "[resourceId('Microsoft.Network/virtualNetworks/subnets', 'vnetlbdemo', 'Subnet-1')]",
-    "lbID": "[resourceId('Microsoft.Network/loadBalancers','lbdemo')]"
+    "lbID": "[resourceId('Microsoft.Network/loadBalancers', parameters('lbName'))]"
   },
   "resources": [
     {
-      "apiVersion": "2015-05-01-preview",
+      "apiVersion": "2015-05-01-preview", 
       "type": "Microsoft.Network/networkInterfaces",
       "name": "NIC0",
       "location": "[resourceGroup().location]",
@@ -94,7 +100,7 @@
       ],
       "properties": {
         "availabilitySet": {
-          "id": "[resourceId('Microsoft.Compute/availabilitySets','avset')]"
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('avsetName'))]"
         },
         "hardwareProfile": {
           "vmSize": "[parameters('vmsize')]"
@@ -157,7 +163,7 @@
       ],
       "properties": {
         "availabilitySet": {
-          "id": "[resourceId('Microsoft.Compute/availabilitySets','avset')]"
+          "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('avsetName'))]"
         },
         "hardwareProfile": {
         "vmSize": "[parameters('vmsize')]"
