@@ -12,3 +12,6 @@ This template deploys a Load-Balancer with 2 virtual machines. It also installs 
 <div>dfile1.ps1-- Custom script extension file for VM1 (the path for the vm1.htm is defined in this file)</div>
 <div>avset.json-- Nested ARM Template for avaialability set</div>
 <div>storageAccount.json--Nested ARM Template for storage account</div>
+<div>loadbal.json-- Nested ARM template for Load Balancer</div>
+<div>vnetpip.json-- Nested ARM template for Virtual Network, Public IP Address</div>
+<div>vmniccse.json-- Nested ARM template for 2 NICs, 2VMs with Custom Script Extensions to install IIS and replace the iisstart.htm files</div>
