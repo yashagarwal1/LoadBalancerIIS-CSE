@@ -2,5 +2,10 @@
   "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
   "contentVersion": "1.0.0.0",
   "parameters": {
+       "adminUsername": { "value": "testadmin" },
+    "adminPassword": { "value": "testadmin@1234" },
+    "avsetName" : {"value": "avset"},
+    "csefileVM0" : {"value": "https://raw.githubusercontent.com/yashagarwal1/LoadBalancerIIS-CSE/master/dfile0.ps1"},
+    "csefileVM1" : {"value": "https://raw.githubusercontent.com/yashagarwal1/LoadBalancerIIS-CSE/master/dfile1.ps1"}
   }
 }
