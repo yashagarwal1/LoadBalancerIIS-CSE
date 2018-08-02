@@ -31,6 +31,9 @@
     },
     "vmsize": {
       "type": "string"
+    },
+     "lbName": {
+      "type": "string"
     }
   },
   "variables": {
@@ -92,6 +95,9 @@
         "templateLink": {
           "uri": "https://raw.githubusercontent.com/yashagarwal1/LoadBalancerIIS-CSE/master/loadbal.json",
           "contentVersion": "1.0.0.0"
+        },
+        "parameters": {
+          "lbName": { "value": "[parameters('lbName')]" }
         }
       }
     },
@@ -112,10 +118,11 @@
           "csefileVM0": { "value": "[parameters('csefileVM0')]" },
           "csefileVM1": { "value": "[parameters('csefileVM1')]" },
           "vmsku": { "value": "[parameters('vmsku')]" },
-          "vmsize": { "value": "[parameters('vmsize')]" }
+          "vmsize": { "value": "[parameters('vmsize')]" },
+          "lbName": { "value": "[parameters('lbName')]" },
+          "avsetName": { "value": "[parameters('avsetName')]" }
         }
       }
     }
-
   ]
 }
