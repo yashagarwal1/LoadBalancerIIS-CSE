@@ -14,12 +14,6 @@
     "csefileVM1": {
       "type": "string"
     },
-    "vmsku": {
-      "type": "string"
-    },
-    "vmsize": {
-      "type": "string"
-    },
        "avsetName": {
       "type": "string"
     },
@@ -103,7 +97,7 @@
           "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('avsetName'))]"
         },
         "hardwareProfile": {
-          "vmSize": "[parameters('vmsize')]"
+          "vmSize": "Standard_A1"
         },
         "osProfile": {
           "computerName": "VM0",
@@ -114,7 +108,7 @@
           "imageReference": {
             "publisher": "MicrosoftWindowsServer",
             "offer": "WindowsServer",
-            "sku": "[parameters('vmsku')]",
+            "sku": "2012-R2-Datacenter",
             "version": "latest"
           },
           "osDisk": {
@@ -169,7 +163,7 @@
         "vmSize": "[parameters('vmsize')]"
         },
         "osProfile": {
-          "computerName": "VM1",
+          "computerName": "Standard_A1",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]"
         },
@@ -177,7 +171,7 @@
           "imageReference": {
             "publisher": "MicrosoftWindowsServer",
             "offer": "WindowsServer",
-            "sku": "[parameters('vmsku')]",
+            "sku": "2012-R2-Datacenter",
             "version": "latest"
           },
           "osDisk": {
