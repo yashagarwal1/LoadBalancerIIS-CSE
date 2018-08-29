@@ -160,10 +160,10 @@
           "id": "[resourceId('Microsoft.Compute/availabilitySets', parameters('avsetName'))]"
         },
         "hardwareProfile": {
-        "vmSize": "[parameters('vmsize')]"
+        "vmSize": "Standard_A1"
         },
         "osProfile": {
-          "computerName": "Standard_A1",
+          "computerName": "VM1",
           "adminUsername": "[parameters('adminUsername')]",
           "adminPassword": "[parameters('adminPassword')]"
         },
