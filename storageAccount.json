@@ -4,9 +4,6 @@
   "parameters": {
     "storageAccountName": {
       "type": "string"
-    },
-    "storageAccountType": {
-      "type": "string"
     }
   },
   "variables": {
@@ -18,7 +15,7 @@
       "apiVersion": "2015-05-01-preview",
       "location": "[resourceGroup().location]",
       "properties": {
-        "accountType": "[parameters('storageAccountType')]"
+        "accountType": "Standard_LRS"
       }
     }
   ]
