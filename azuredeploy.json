@@ -5,9 +5,6 @@
     "storageAccountName": {
       "type": "string"
     },
-    "storageAccountType": {
-      "type": "string"
-    },
     "avsetName": {
       "type": "string"
     },
@@ -24,12 +21,6 @@
       "type": "string"
     },
     "csefileVM1": {
-      "type": "string"
-    },
-    "vmsku": {
-      "type": "string"
-    },
-    "vmsize": {
       "type": "string"
     },
      "lbName": {
@@ -51,7 +42,6 @@
         },
         "parameters": {
           "storageAccountName": { "value": "[parameters('storageAccountName')]" },
-          "storageAccountType": { "value": "[parameters('storageAccountType')]" }
         }
       }
     },
@@ -117,8 +107,6 @@
           "adminPassword": { "value": "[parameters('adminPassword')]" },
           "csefileVM0": { "value": "[parameters('csefileVM0')]" },
           "csefileVM1": { "value": "[parameters('csefileVM1')]" },
-          "vmsku": { "value": "[parameters('vmsku')]" },
-          "vmsize": { "value": "[parameters('vmsize')]" },
           "lbName": { "value": "[parameters('lbName')]" },
           "avsetName": { "value": "[parameters('avsetName')]" }
         }
