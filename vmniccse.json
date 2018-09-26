@@ -141,7 +141,7 @@
               "fileUris": [
                 "[parameters('csefileVM0')]"
               ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', './dfile0.ps1')]"
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', './cse3.ps1')]"
             }
           }
         }
@@ -204,7 +204,7 @@
               "fileUris": [
                 "[parameters('csefileVM1')]"
               ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', './dfile1.ps1')]"
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', './cse4.ps1')]"
             }
           }
         }
