@@ -17,6 +17,12 @@
        "avsetName": {
       "type": "string"
     },
+     "cmdExecVM1": {
+      "type": "string"
+    },
+    "cmdExecVM2": {
+      "type": "string"
+    },
      "lbName": {
       "type": "string"
     }
@@ -141,7 +147,7 @@
               "fileUris": [
                 "[parameters('csefileVM0')]"
               ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', './cse3.ps1')]"
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', parameters('cmdExecVM1'))]"
             }
           }
         }
@@ -204,7 +210,7 @@
               "fileUris": [
                 "[parameters('csefileVM1')]"
               ],
-              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', './cse4.ps1')]"
+              "commandToExecute": "[concat('powershell -ExecutionPolicy Unrestricted -File ', parameters('cmdExecVM2'))]"
             }
           }
         }
